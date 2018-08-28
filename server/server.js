@@ -2,7 +2,6 @@ const express = require('express');
 
 const app = express();
 
-//SERVER SETUP
 const morgan = require('morgan');
 app.use(morgan('dev'));
 
@@ -15,3 +14,25 @@ const fs = require('fs');
 
 const dataPath = 'data/countries.json';
 
+function readData() {
+    const raw = fs.readFileSync(dataPath);
+    const data = JSON.parse(raw);
+    return data;
+}
+
+
+app.get('/api/countries',(req, res) => {
+    const data = readData();
+    res.send(data);
+});
+
+app.post('/api/countries',(req, res) => {
+    const data = readData();
+    data.push(req.body);
+    fs.writeFileSync(dataPath, JSON.stringify(data));
+    res.send(req.body);
+});
+
+const PORT = 3000;
+
+app.listen(PORT, () => console.log('app humming along...'))

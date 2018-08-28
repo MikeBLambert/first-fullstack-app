@@ -2,7 +2,7 @@
     <section>
         <h2>Countries Visited</h2>
         <ul>
-            <Neighborhood/>
+            <Country/>
         </ul>
         <AddCountry/>
     </section>
@@ -14,10 +14,10 @@ import AddCountry from './AddCountry';
 
 
 export default {
-compoonents: {
-    Country,
-    AddCountry
-}
+    compoonents: {
+        Country,
+        AddCountry
+    },
 }
 </script>
 

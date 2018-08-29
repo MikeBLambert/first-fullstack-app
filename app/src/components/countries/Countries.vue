@@ -30,31 +30,31 @@ import api from '../../services/api';
 
 
 export default {
-    data() {
-        return {
-            countries: null
-        };
-    },
-    created() {
-        api.getCountries()
-            .then(countries => { 
-                this.countries = countries;
-            });
-    },
-    components: {
-        CountryVisited,
-        AddCountry,
-        CountryNotVisited
-    },
-    methods: {
-        handleAdd(country) {
-            return api.addCountry(country)
-                .then(saved => {
-                    this.countries.push(saved);
-                });
-        }
+  data() {
+    return {
+      countries: null
+    };
+  },
+  created() {
+    api.getCountries()
+      .then(countries => { 
+        this.countries = countries;
+      });
+  },
+  components: {
+    CountryVisited,
+    AddCountry,
+    CountryNotVisited
+  },
+  methods: {
+    handleAdd(country) {
+      return api.addCountry(country)
+        .then(saved => {
+          this.countries.push(saved);
+        });
     }
-}
+  }
+};
 </script>
 
 <style>

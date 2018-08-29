@@ -25,33 +25,33 @@
 <script>
 
 const initCountry = () => {
-    return {
-        name: '',
-        times: '',
-        visited: '',
-    };
+  return {
+    name: '',
+    times: '',
+    visited: '',
+  };
 };
 
 export default {
-    props: {
-        onAdd: {
-            type: Function,
-            required: true
-        }
-    },
-    data() {
-        return {
-            country: initCountry()
-        }
-    },
-    methods: {
-        handleSubmit() {
-            this.onAdd(this.country)
-                .then(() => {
-                    this.country = initCountry();
-                });
-        }
+  props: {
+    onAdd: {
+      type: Function,
+      required: true
     }
+  },
+  data() {
+    return {
+      country: initCountry()
+    };
+  },
+  methods: {
+    handleSubmit() {
+      this.onAdd(this.country)
+        .then(() => {
+          this.country = initCountry();
+        });
+    }
+  }
 };
 </script>
 

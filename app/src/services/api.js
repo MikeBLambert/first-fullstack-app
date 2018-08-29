@@ -5,5 +5,13 @@ export default {
         })
             .then(response => response.json())
             .then(console.log("yo"));
+    },
+    addCountry(country) {
+        return fetch('http://localhost:3000/api/countries', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(country)
+        })
+            .then(response => response.json());
     }
 }

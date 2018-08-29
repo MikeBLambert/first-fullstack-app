@@ -4,7 +4,6 @@ export default {
             headers: { 'Content-Type' : 'application/json' }
         })
             .then(response => response.json())
-            .then(console.log("yo"));
     },
     addCountry(country) {
         return fetch('http://localhost:3000/api/countries', {
@@ -14,4 +13,4 @@ export default {
         })
             .then(response => response.json());
     }
-}
+};

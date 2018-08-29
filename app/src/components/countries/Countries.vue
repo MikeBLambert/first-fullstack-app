@@ -16,7 +16,7 @@
                 :country="country"
             />
         </ul>
-        <AddCountry/>
+        <AddCountry :on-add="handleAdd"/>
     </section>
 </template>
 
@@ -44,6 +44,14 @@ export default {
         AddCountry,
         CountryNotVisited
     },
+    methods: {
+        handleAdd(country) {
+            return api.addCountry(country)
+                .then(saved => {
+                    this.countries.push(saved);
+                });
+        }
+    }
 }
 </script>
 

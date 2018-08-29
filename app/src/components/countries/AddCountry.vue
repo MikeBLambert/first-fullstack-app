@@ -1,34 +1,58 @@
 <template>
     <section class="add-country">
         <h1>Add New Country</h1>
-        <form>
+        <form @submit.prevent="handleSubmit">
             <label>
-                Country Name: <input type="text" name="name" placeholder="name">
+                Country Name: 
+                <input type="text" name="name" placeholder="name" required
+                    v-model="country.name">
             </label>
             <label>
-                Population: <input type="number" name="population" placeholder="population">
+                Population: 
+                <input type="number" name="population" placeholder="population"
+                    v-model="country.population">
             </label>
             <label>
                 Visited?: 
-                Yes <input type="radio" name="visited" value="yes">
-                No <input type="radio" name="visited" value="no">
+                Yes <input type="radio" name="visited" value=1 v-model="country.visited">
+                No <input type="radio" name="visited" value=0 v-model="country.visited">
             </label>
+            <button type="submit">Add</button>
         </form>
     </section>
 </template>
 
 <script>
 
-const fullCountry = () => {
+const initCountry = () => {
     return {
         name: '',
         population: '',
         visited: '',
-    }
-}
-export default {
+    };
+};
 
-}
+export default {
+    props: {
+        onAdd: {
+            type: Function,
+            required: true
+        }
+    },
+    data() {
+        return {
+            country: initCountry()
+        }
+    },
+    methods: {
+        handleSubmit() {
+            this.onAdd(this.country)
+                .then(() => {
+                    this.country = initCountry();
+                });
+        }
+    }
+};
 </script>
 
 <style>

@@ -1,21 +1,23 @@
 <template>
     <section>
-        <ul>
-            <h2>Countries You've Visited:</h2>
-            <CountryVisited
-                v-for="(country, index) in countries"
-                :key="index"
-                :country="country"
-            />
-        </ul>
-        <ul>
-            <h2>Countries You Have Yet To Visit:</h2>
-            <CountryNotVisited
-                v-for="(country, index) in countries"
-                :key="index"
-                :country="country"
-            />
-        </ul>
+        <div id="ul-container">
+            <ul>
+                <h2>Been To:</h2>
+                <CountryVisited
+                    v-for="(country, index) in countries"
+                    :key="index"
+                    :country="country"
+                />
+            </ul>
+            <ul>
+                <h2>Bucket List:</h2>
+                <CountryNotVisited
+                    v-for="(country, index) in countries"
+                    :key="index"
+                    :country="country"
+                />
+            </ul>
+        </div>
         <AddCountry :on-add="handleAdd"/>
     </section>
 </template>
@@ -56,5 +58,14 @@ export default {
 </script>
 
 <style>
+ul {
+    color: white;
+}
+
+#ul-container {
+    display: grid;
+    grid-template-columns: 500px 500px;
+    border: 5px solid white;
+}
 
 </style>

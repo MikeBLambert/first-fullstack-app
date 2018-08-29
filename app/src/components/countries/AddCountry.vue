@@ -1,21 +1,21 @@
 <template>
     <section class="add-country">
-        <h1>Add New Country</h1>
+        <h1 id="add-country-h1">Add New Country ---></h1>
         <form @submit.prevent="handleSubmit">
             <label>
                 Country Name: 
-                <input type="text" name="name" placeholder="name" required
+                <input type="text" name="Name" placeholder="name" required
                     v-model="country.name">
-            </label>
-            <label>
-                Population: 
-                <input type="number" name="population" placeholder="population"
-                    v-model="country.population">
             </label>
             <label>
                 Visited?: 
                 Yes <input type="radio" name="visited" value=1 v-model="country.visited">
                 No <input type="radio" name="visited" value=0 v-model="country.visited">
+            </label>
+            <label>
+                Times Visited: 
+                <input type="number" name="times" placeholder="Times visited"
+                    v-model="country.times">
             </label>
             <button type="submit">Add</button>
         </form>
@@ -27,7 +27,7 @@
 const initCountry = () => {
     return {
         name: '',
-        population: '',
+        times: '',
         visited: '',
     };
 };
@@ -58,14 +58,31 @@ export default {
 <style>
 
 .add-country {
-  width: 300px;
-  text-align: left;
-  margin: auto;
+    width: 300px;
+    display: grid;
+    grid-template-columns: 300px 300px;
+    grid-template-rows: 200px 200px;
+    text-align: left;
+    margin: auto;
+    align-content: center;
 }
 
 label {
-  display: block;
-  margin: 25px;
-  font-size: 25px;
+    display: block;
+    color: white;
+    margin: 25px;
+    font-size: 20px;
 }
+
+#add-country-h1 {
+    font-size: 35px;
+}
+
+button {
+    margin-left: 85px;
+    border-radius: 15px;
+    font-size: 20px;
+}
+
+
 </style>

@@ -1,32 +1,32 @@
 [
     {
         "name": "Canada",
-        "population": 36290000,
+        "times": 10,
         "visited": true
     },
     {
         "name": "Mexico",
-        "population": 127500000,
+        "times": 7,
         "visited": true
     },
     {
         "name": "China",
-        "population": 1379000000,
+        "times": 5,
         "visited": true
     },
     {
         "name": "Peru",
-        "population": 31770000,
+        "times": 15,
         "visited": true
     },
     {
         "name": "Italy",
-        "population": 60600000,
+        "times": 0,
         "visited": false
     },
     {
         "name": "Indonesia",
-        "population": 261100000,
+        "times": 0,
         "visited": false
     }
 ]

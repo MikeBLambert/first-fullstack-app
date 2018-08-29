@@ -9,10 +9,10 @@
             </label>
             <label>
                 Visited?: 
-                Yes <input type="radio" name="visited" value=1 v-model="country.visited">
+                Yes <input v-on:click="handleValueClick" type="radio" name="visited" value=1 v-model="country.visited">
                 No <input type="radio" name="visited" value=0 v-model="country.visited">
             </label>
-            <label>
+            <label v-if="country.visited==1">
                 Times Visited: 
                 <input type="number" name="times" placeholder="Times visited"
                     v-model="country.times">
@@ -37,7 +37,7 @@ export default {
     onAdd: {
       type: Function,
       required: true
-    }
+    }, 
   },
   data() {
     return {
@@ -45,12 +45,15 @@ export default {
     };
   },
   methods: {
+    handleValueClick(){
+      this.country.visited = 1;
+    },
     handleSubmit() {
       this.onAdd(this.country)
         .then(() => {
           this.country = initCountry();
         });
-    }
+    },
   }
 };
 </script>

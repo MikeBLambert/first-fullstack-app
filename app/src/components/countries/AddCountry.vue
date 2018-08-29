@@ -18,6 +18,14 @@
 </template>
 
 <script>
+
+const fullCountry = () => {
+    return {
+        name: '',
+        population: '',
+        visited: '',
+    }
+}
 export default {
 
 }

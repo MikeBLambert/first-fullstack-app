@@ -3,7 +3,7 @@
         
         <router-link :to="`/countries/${country.id}`">
             <h3 v-if="country.visited==true">
-                {{ country.name }})
+                {{ country.name }}
             </h3>
         </router-link>
         

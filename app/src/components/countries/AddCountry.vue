@@ -9,8 +9,6 @@
             </label>
             <label>
                 Check if you've been there before: 
-                <!-- Yes <input v-on:click="handleValueClick" type="radio" name="visited" value="true" v-model="country.visited">
-                No <input type="radio" name="visited" value="false" v-model="country.visited"> -->
                 <input v-on:click="handleValueClick" type="checkbox" name="visited" v-model="country.visited">
             </label>
             <label v-if="country.visited==true">
@@ -43,6 +41,7 @@ export default {
   data() {
     return {
       country: initCountry(),
+      
     };
   },
   methods: {

@@ -3,6 +3,7 @@
         <div id="home-container">
             <h1>Welcome to Your Personal World Travel Log!</h1>
             <router-link to="/countries">View Your Travel Log</router-link>
+            <!-- <router-view></router-view> -->
         </div>
     </section>
 </template>

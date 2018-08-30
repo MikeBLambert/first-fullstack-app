@@ -1,12 +1,28 @@
 <template>
     <article>
-        <h3 v-if="country.visited==true">{{ country.name }} ({{country.times}} times)</h3>
+        
+        <router-link :to="`/detail/${country.id}`">
+            <h3 v-if="country.visited==true">
+                {{ country.name }} ({{country.times}} times)
+            </h3>
+        </router-link>
+        
     </article>
 </template>
 
 <script>
+
+
 export default {
+    created() {
+        // console.log(country)
+    
+    },
   props: ['country']
+   
+    // country: Object
+  
+
 };
 </script>
 

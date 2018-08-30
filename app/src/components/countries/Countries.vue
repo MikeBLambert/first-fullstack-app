@@ -7,6 +7,7 @@
                     v-for="(country, index) in countries"
                     :key="index"
                     :country="country"
+                    :onSelect="onSelect"
                 />
             </ul>
             <ul>
@@ -14,15 +15,27 @@
                 <CountryNotVisited
                     v-for="(country, index) in countries"
                     :key="index"
-                    :country="country"
-                />
+                    :country="country"/>
             </ul>
+                
         </div>
+        <CountryDetail
+            v-for="(country,index) in countries"
+            :key="index"
+            :country="country"    
+        />
+        <!-- <CountryDetail 
+            v-for="(country, index) in countries"
+            :key="index"
+            :country="country"/> -->
         <AddCountry :on-add="handleAdd"/>
+        
+   
     </section>
 </template>
 
 <script>
+import CountryDetail from './CountryDetail.vue';
 import CountryNotVisited from './CountryNotVisited.vue';
 import CountryVisited from './CountryVisited.vue';
 import AddCountry from './AddCountry.vue';
@@ -30,6 +43,9 @@ import api from '../../services/api';
 
 
 export default {
+  props: {
+    onSelect: Function,
+  },
   data() {
     return {
       countries: null
@@ -44,7 +60,8 @@ export default {
   components: {
     CountryVisited,
     AddCountry,
-    CountryNotVisited
+    CountryNotVisited,
+    CountryDetail
   },
   methods: {
     handleAdd(country) {

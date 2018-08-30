@@ -1,7 +1,7 @@
 <template>
-    <main>
+    <main v-if="country">
         <div></div>
-        <h2>{{country.name}}</h2>
+        <h2>You have been to {{country.name}} {{country.times}} times.</h2>
     </main>
 </template>
 
@@ -10,15 +10,25 @@
 import api from '../../services/api';
 
 export default {
+    data() {
+        return {
+            country: null,
+        }
+    },
     created() {
-        this.country = api.getCountry(this.$route.params.id)    
+        api.getCountry(this.$route.params.id) 
+            .then(country => { 
+                this.country = country        
+            })
     }
-
 }
 
 </script>
 
 <style>
 
+h2 {
+    color: white;
+}
 </style>
 

@@ -19,10 +19,7 @@
             </ul>
                 
         </div>
-        <CountryDetail/>
         <AddCountry :on-add="handleAdd"/>
-        
-   
     </section>
 </template>
 

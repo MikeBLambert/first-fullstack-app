@@ -6,7 +6,7 @@ export default {
       .then(response => (response.json()));
   },
   getCountry(id) {
-    return fetch('http://localhost:3000/api/country_visit_info/${$route.params.id}', {
+    return fetch(`http://localhost:3000/api/country_visit_info/${id}`, {
       headers: { 'Content-Type' : 'application/json' }
     })
       .then(response => (response.json()));

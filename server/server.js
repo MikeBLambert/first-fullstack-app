@@ -36,7 +36,7 @@ app.get('/api/country_visit_info/:id', (req, res) => {
       name,
       visited,
       times
-    FROM country_visit_info;
+    FROM country_visit_info
     WHERE id = $1;
   `,
   [req.params.id]

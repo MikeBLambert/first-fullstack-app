@@ -19,15 +19,7 @@
             </ul>
                 
         </div>
-        <CountryDetail
-            v-for="(country,index) in countries"
-            :key="index"
-            :country="country"    
-        />
-        <!-- <CountryDetail 
-            v-for="(country, index) in countries"
-            :key="index"
-            :country="country"/> -->
+        <CountryDetail/>
         <AddCountry :on-add="handleAdd"/>
         
    

@@ -1,6 +1,8 @@
 <template>
     <article>
-        <h3 v-if="country.visited==false">{{ country.name }}</h3>
+        <router-link :to="`/countries/${country.id}`">
+            <h3 v-if="country.visited==false">{{ country.name }}</h3>
+        </router-link>
     </article>
 </template>
 

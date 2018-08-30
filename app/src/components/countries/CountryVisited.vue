@@ -1,7 +1,7 @@
 <template>
     <article>
         
-        <router-link :to="`/detail/${country.id}`">
+        <router-link :to="`/countries/${country.id}`">
             <h3 v-if="country.visited==true">
                 {{ country.name }} ({{country.times}} times)
             </h3>

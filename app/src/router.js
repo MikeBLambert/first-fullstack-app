@@ -7,7 +7,7 @@ export default new VueRouter({
   routes:[
     { path: '/', component: Home },
     { path: '/countries', component: Countries },
-    { path: '/detail/:id', component: CountryDetail },
+    { path: '/countries/:id', component: CountryDetail },
     { path: '*', redirect: '/' },
   ]
 });

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "create-tables": "node scripts/create-tables.js",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "exit 0",

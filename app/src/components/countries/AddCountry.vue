@@ -8,11 +8,12 @@
                     v-model="country.name">
             </label>
             <label>
-                Visited?: 
-                Yes <input v-on:click="handleValueClick" type="radio" name="visited" value=1 v-model="country.visited">
-                No <input type="radio" name="visited" value=0 v-model="country.visited">
+                Check if you've been there before: 
+                <!-- Yes <input v-on:click="handleValueClick" type="radio" name="visited" value="true" v-model="country.visited">
+                No <input type="radio" name="visited" value="false" v-model="country.visited"> -->
+                <input v-on:click="handleValueClick" type="checkbox" name="visited" v-model="country.visited">
             </label>
-            <label v-if="country.visited==1">
+            <label v-if="country.visited==true">
                 Times Visited: 
                 <input type="number" name="times" placeholder="Times visited"
                     v-model="country.times">
@@ -27,8 +28,8 @@
 const initCountry = () => {
   return {
     name: '',
-    times: '',
-    visited: '',
+    visited: false,
+    times: 0,
   };
 };
 
@@ -41,12 +42,12 @@ export default {
   },
   data() {
     return {
-      country: initCountry()
+      country: initCountry(),
     };
   },
   methods: {
     handleValueClick(){
-      this.country.visited = 1;
+      this.country.visited = true;
     },
     handleSubmit() {
       this.onAdd(this.country)

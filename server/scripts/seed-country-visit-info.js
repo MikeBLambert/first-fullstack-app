@@ -1,5 +1,5 @@
 const client = require('../db-client');
-const countries = require('../data/countries.json');
+const countries = require('../data/country-visit-info.json');
 
 Promise.all(
     countries.map(country => {

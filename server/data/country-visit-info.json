@@ -1,31 +1,37 @@
 [
     {
         "name": "Canada",
+        "language": "English",
         "visited": true,
         "times": 10
     },
     {
         "name": "Mexico",
+        "language": "Español",
         "visited": true,
         "times": 7
     },
     {
         "name": "China",
+        "language": "中文",
         "visited": true,
         "times": 5
     },
     {
         "name": "Peru",
+        "language": "中文",        
         "visited": true,
         "times": 15
     },
     {
         "name": "Italy",
+        "language": "Italiano",
         "visited": false,
         "times": 0
     },
     {
         "name": "Indonesia",
+        "language": "Bahasa Indonesia",
         "visited": false,
         "times": 0
     }

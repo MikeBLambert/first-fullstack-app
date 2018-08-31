@@ -9,16 +9,27 @@
     </header>
     
     <main>
-      <router-view></router-view>
+      <router-view :languages="languages"></router-view>
     </main>
     
   </div>
 </template>
 
 <script>
+import api from './services/api';
 
 export default {
-
+  data() {
+    return {
+      languages: null
+    }
+  },
+  created() {
+    api.getLanguages()
+      .then(languages => {
+        this.languages = languages;
+      });
+  },
 };
 </script>
 

@@ -20,7 +20,7 @@ app.get('/api/country-visit-info', (req, res) => {
     c.name,
     c.visited,
     c.times, 
-    l.name as langName
+    l.name as language
   FROM country_visit_info as c
   JOIN languages as l
   ON c.language_id = l.id
@@ -52,13 +52,15 @@ app.get('/api/country-visit-info', (req, res) => {
 app.get('/api/country-visit-info/:id', (req, res) => {
   client.query(`
     SELECT 
-      id,
-      name,
-      language_id as "languageID",
-      visited,
-      times
-    FROM country_visit_info
-    WHERE id = $1;
+      c.id,
+      c.name,
+      l.name as "language",
+      c.visited,
+      c.times
+    FROM country_visit_info as c
+    JOIN languages as l
+    ON c.language_id = l.id
+    WHERE c.id = $1;
   `,
   [req.params.id]
   )
@@ -67,6 +69,25 @@ app.get('/api/country-visit-info/:id', (req, res) => {
     })
     .catch(err => console.log(err));
 });
+
+// app.get('/api/country-visit-info/:id', (req, res) => {
+//   client.query(`
+//     SELECT 
+//       id,
+//       name,
+//       language_id as "languageID",
+//       visited,
+//       times
+//     FROM country_visit_info
+//     WHERE id = $1;
+//   `,
+//   [req.params.id]
+//   )
+//     .then(result => {
+//       res.send(result.rows[0]);
+//     })
+//     .catch(err => console.log(err));
+// });
 
 app.post('/api/country-visit-info', (req, res) => {
   console.log('posting');

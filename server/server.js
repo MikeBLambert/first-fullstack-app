@@ -115,8 +115,24 @@ app.get('/api/languages', (req, res) => {
   `)
     .then(result => {
       res.send(result.rows)
-    })
-})
+    });
+});
+
+app.put('/api/country-visit-info/:id', (req, res) => {
+  const body = req.body;
+
+  client.query(`
+    UPDATE country_visit_info
+    SET
+      visits = $1
+    WHERE id = $6
+    RETURNING *;
+    `,
+    [body.visits, req.params.id]
+  ).then(result => {
+    res.send(result.rows[0]);
+  });
+});
 
 
 app.listen(3000, () => console.log('app humming along...'));

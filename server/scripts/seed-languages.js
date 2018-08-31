@@ -4,10 +4,10 @@ const countries = require('../data/languages.json');
 Promise.all(
     countries.map(language => {
         return client.query(`
-            INSERT INTO languages (name, native)
-            VALUES ($1, $2);
+            INSERT INTO languages (name)
+            VALUES ($1);
         `,
-        [language.name, language.native]
+        [language.name]
         );
     })
 )

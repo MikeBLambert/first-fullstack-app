@@ -4,11 +4,18 @@ const countries = require('../data/country-visit-info.json');
 Promise.all(
     countries.map(country => {
         return client.query(`
-            INSERT INTO country_visit_info (name, visited, times)
-            VALUES ($1, $2, $3);
-     
-        `,
-        [country.name, country.visited, country.times]
+            INSERT INTO country_visit_info (
+                language_id, name, visited, times
+            )
+            SELECT
+                id as language_id,
+                $1 as name,
+                $2 as visited,
+                $3 as times
+            FROM languages
+            WHERE name = $4;
+            `,
+        [country.name, country.visited, country.times, country.language]
         );
     })
 )

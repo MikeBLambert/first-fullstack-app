@@ -10,6 +10,7 @@ client.connect()
   .then(() => {
     return client.query(`
     DROP TABLE IF EXISTS country_visit_info;
+    DROP TABLE IF EXISTS languages;
     `);
   })
   .then(

@@ -3,14 +3,13 @@ const client = require('../db-client');
 client.query(`
   CREATE TABLE IF NOT EXISTS languages (
     id SERIAL PRIMARY KEY,
-    name VARCHAR(256) NOT NULL,
-    native VARCHAR(256) NOT NULL
+    name VARCHAR(256) NOT NULL
   );
 
   CREATE TABLE IF NOT EXISTS country_visit_info (
     id SERIAL PRIMARY KEY,
     name VARCHAR(256) NOT NULL,
-    language VARCHAR(256) NOT NULL REFERENCES languages(id),
+    language_id INTEGER NOT NULL REFERENCES languages(id),
     visited BOOLEAN,
     times INTEGER
   );

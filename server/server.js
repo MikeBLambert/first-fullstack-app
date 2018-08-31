@@ -1,3 +1,4 @@
+
 const express = require('express');
 const app = express();
 
@@ -8,13 +9,10 @@ const cors = require('cors');
 app.use(cors());
 app.use(express.json());
 
-const pg = require('pg');
-const Client = pg.Client;
-const databaseUrl = 'postgres://postgres:password@localhost:5432/countries';
-const client = new Client(databaseUrl);
-client.connect();
+const client = require('./db-client');
 
-app.get('/api/country_visit_info', (req, res) => {
+//routes
+app.get('/api/country-visit-info', (req, res) => {
   client.query(`
     SELECT
       id,
@@ -29,7 +27,7 @@ app.get('/api/country_visit_info', (req, res) => {
     .catch(err => console.log(err));
 });
 
-app.get('/api/country_visit_info/:id', (req, res) => {
+app.get('/api/country-visit-info/:id', (req, res) => {
   client.query(`
     SELECT 
       id,
@@ -47,12 +45,12 @@ app.get('/api/country_visit_info/:id', (req, res) => {
     .catch(err => console.log(err));
 });
 
-app.post('/api/country_visit_info', (req, res) => {
+app.post('/api/country-visit-info', (req, res) => {
   console.log('posting');
   const body = req.body;
 
   client.query(`
-    INSERT INTO country_visit_info (name, visited, times)
+    INSERT INTO country-visit-info (name, visited, times)
     VALUES ($1, $2, $3)
     RETURNING *;
   `,

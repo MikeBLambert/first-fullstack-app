@@ -15,18 +15,26 @@ export default {
     })
       .then(response => response.json());
   },
+  getLanguages() {
+    return fetch(LANGUAGES_URL, {
+      headers: { 'Content-type' : 'application/json' }
+    })
+      .then(response => response.json());
+  },
   addCountry(country) {
     return fetch(COUNTRY_VISIT_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(country)
     })
-      .then(response => response.json());
+    .then(response => response.json());
   },
-  getLanguages() {
-    return fetch(LANGUAGES_URL, {
-      headers: { 'Content-type' : 'application/json' }
+  updateCountry(country) {
+    return fetch(`${COUNTRY_VISIT_URL}/${id}`,{
+      method: 'PUT',
+      headers: { 'Content-Type' : 'application/json'},
+      body: JSON.stringify(country)
     })
       .then(response => response.json());
   }
-};
+}

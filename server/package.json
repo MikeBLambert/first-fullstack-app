@@ -10,6 +10,7 @@
     "seed-country-visit-info": "node scripts/seed-country-visit-info.js",
     "seed-languages": "node scripts/seed-languages.js",
     "seed-data": "npm run seed-languages && npm run seed-country-visit-info",
+    "db-load-all": "npm run recreate-tables && npm run seed-data",
     "lint": "eslint .",
     "pretest": "npm run lint",
     "test": "exit 0",

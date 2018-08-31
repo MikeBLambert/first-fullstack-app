@@ -19,7 +19,9 @@
             </ul>
                 
         </div>
-        <AddCountry :on-add="handleAdd"/>
+        <AddCountry 
+          :languages="languages"
+          :on-add="handleAdd"/>
     </section>
 </template>
 
@@ -34,6 +36,7 @@ import api from '../../services/api';
 export default {
   props: {
     onSelect: Function,
+    languages: Array,
   },
   data() {
     return {

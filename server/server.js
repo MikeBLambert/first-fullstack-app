@@ -63,5 +63,15 @@ app.post('/api/country-visit-info', (req, res) => {
     .catch(err => console.log(err));
 });
 
+app.get('/api/languages', (req, res) => {
+  client.query(`
+    SELECT *
+    FROM languages;
+  `)
+    .then(result => {
+      res.send(result.rows)
+    })
+})
+
 
 app.listen(3000, () => console.log('app humming along...'));

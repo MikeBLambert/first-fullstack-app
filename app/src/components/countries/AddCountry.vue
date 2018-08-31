@@ -16,12 +16,26 @@
                 <input type="number" name="times" placeholder="Times visited"
                     v-model="country.times">
             </label>
+            <label v-if="country.visited==true">
+              What is the primary official language?
+                <select>
+                  <option disabled value="">Please select a language</option>
+                  <option 
+                    v-for="language in languages"
+                    :key="language.id"
+                    :value="language.id"
+                  >
+                  {{language.name}}  
+                  </option>
+                </select>
+            </label>
             <button type="submit">Add</button>
         </form>
     </section>
 </template>
 
 <script>
+import api from '../../services/api';
 
 const initCountry = () => {
   return {
@@ -33,6 +47,7 @@ const initCountry = () => {
 
 export default {
   props: {
+    languages: Array,
     onAdd: {
       type: Function,
       required: true
@@ -40,8 +55,7 @@ export default {
   },
   data() {
     return {
-      country: initCountry(),
-      
+      country: initCountry(),      
     };
   },
   methods: {

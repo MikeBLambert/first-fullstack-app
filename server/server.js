@@ -50,7 +50,7 @@ app.post('/api/country-visit-info', (req, res) => {
   const body = req.body;
 
   client.query(`
-    INSERT INTO country-visit-info (name, visited, times)
+    INSERT INTO country_visit_info (name, visited, times)
     VALUES ($1, $2, $3)
     RETURNING *;
   `,

@@ -8,7 +8,8 @@
             <button>Delete</button>
         </main>
     </article>
-    <CountryForm v-else
+    <CountryForm 
+        v-else
         :country="country"
         :onEdit="handleUpdate"/>
 </template>

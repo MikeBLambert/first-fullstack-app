@@ -14,12 +14,12 @@
 
 
 export default {
-    created() {
+  created() {
     
-    },
+  },
   props: ['country']
    
-    // country: Object
+  // country: Object
   
 
 };

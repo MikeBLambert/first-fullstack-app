@@ -96,9 +96,10 @@ label {
 }
 
 button {
-    margin-left: 85px;
-    border-radius: 15px;
+    /* margin-left: 85px; */
+    border-radius: 10px;
     font-size: 20px;
+    margin: 15px;
 }
 
 

@@ -7,11 +7,9 @@
       </nav>
       <h1>Know where you've been so you can know where you're going...</h1>
     </header>
-    
     <main>
       <router-view :languages="languages"></router-view>
     </main>
-    
   </div>
 </template>
 
@@ -22,7 +20,7 @@ export default {
   data() {
     return {
       languages: null
-    }
+    };
   },
   created() {
     api.getLanguages()

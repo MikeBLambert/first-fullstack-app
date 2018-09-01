@@ -1,8 +1,8 @@
 const client = require('../db-client');
-const countries = require('../data/languages.json');
+const languages = require('../data/languages.json');
 
 Promise.all(
-    countries.map(language => {
+    Object.values(languages).map(language => {
         return client.query(`
             INSERT INTO languages (name)
             VALUES ($1);
@@ -16,3 +16,4 @@ Promise.all(
         err => console.log(err)
     )
     .then(() => client.end());
+

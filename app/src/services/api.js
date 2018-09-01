@@ -1,6 +1,6 @@
 const URL = 'http://localhost:3000/api';
-const COUNTRY_VISIT_URL =  `${URL}/country-visit-info`
-const LANGUAGES_URL = `${URL}/languages` 
+const COUNTRY_VISIT_URL = `${URL}/country-visit-info`;
+const LANGUAGES_URL = `${URL}/languages`; 
 
 export default {
   getCountries() {
@@ -27,12 +27,12 @@ export default {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(country)
     })
-    .then(response => response.json());
+      .then(response => response.json());
   },
   updateCountry(country) {
-    return fetch(`${COUNTRY_VISIT_URL}/${country.id}`,{
+    return fetch(`${COUNTRY_VISIT_URL}/${country.id}`, {
       method: 'PUT',
-      headers: { 'Content-Type' : 'application/json'},
+      headers: { 'Content-Type' : 'application/json' },
       body: JSON.stringify(country)
     })
       .then(response => response.json());
@@ -43,4 +43,4 @@ export default {
     })
       .then(response => response.json());
   }
-}
+};

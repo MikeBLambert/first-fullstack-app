@@ -17,45 +17,45 @@
 <script>
 
 const initCountry = () => {
-    return {
-        times: 0,
-        visited: false
-    };
+  return {
+    times: 0,
+    visited: false
+  };
 };
 
 export default {
-    props: {
-        country: Object,
-        onEdit: {
-            type: Function,
-            required: true
-        }
-    },
-    data() {
-        return {
-            edit: this.country ? Object.assign({}, this.country) : initCountry()
-        };
-    },
-    computed: {
-        editMode() {
-            return !!this.country;
-        },
-    },
-    methods: {
-        handleSubmit() {
-            if(!this.edit.visited) {
-                this.edit.times = 0;
-            }
-            this.onEdit(this.edit)
-                .then(() => {
-                    this.edit = initCountry();
-                });
-        },
-        handleValueClick(){
-            this.country.visited = true;
-        },
+  props: {
+    country: Object,
+    onEdit: {
+      type: Function,
+      required: true
     }
-}
+  },
+  data() {
+    return {
+      edit: this.country ? Object.assign({}, this.country) : initCountry()
+    };
+  },
+  computed: {
+    editMode() {
+      return !!this.country;
+    },
+  },
+  methods: {
+    handleSubmit() {
+      if(!this.edit.visited) {
+        this.edit.times = 0;
+      }
+      this.onEdit(this.edit)
+        .then(() => {
+          this.edit = initCountry();
+        });
+    },
+    handleValueClick(){
+      this.country.visited = true;
+    },
+  }
+};
 </script>
 
 <style>

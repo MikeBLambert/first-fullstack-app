@@ -135,5 +135,15 @@ app.put('/api/country-visit-info/:id', (req, res) => {
   });
 });
 
+app.delete('/api/country-visit-info/:id', (req, res) => {
+  client.query(`
+    DELETE FROM country_visit_info WHERE id=$1;
+  `,
+  [req.params.id]
+  ).then(() => {
+    res.send({ removed: true });
+  });
+});
+
 
 app.listen(3000, () => console.log('app humming along...'));

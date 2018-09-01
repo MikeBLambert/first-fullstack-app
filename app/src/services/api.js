@@ -36,5 +36,11 @@ export default {
       body: JSON.stringify(country)
     })
       .then(response => response.json());
+  },
+  deleteCountry(id) {
+    return fetch(`${COUNTRY_VISIT_URL}/${id}`, {
+      method: 'DELETE'
+    })
+      .then(response => response.json());
   }
 }

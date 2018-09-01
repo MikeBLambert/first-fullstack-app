@@ -40,9 +40,6 @@ export default {
         editMode() {
             return !!this.country;
         },
-        timesToZero() {
-
-        }
     },
     methods: {
         handleSubmit() {

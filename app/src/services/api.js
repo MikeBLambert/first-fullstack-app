@@ -30,7 +30,7 @@ export default {
     .then(response => response.json());
   },
   updateCountry(country) {
-    return fetch(`${COUNTRY_VISIT_URL}/${id}`,{
+    return fetch(`${COUNTRY_VISIT_URL}/${country.id}`,{
       method: 'PUT',
       headers: { 'Content-Type' : 'application/json'},
       body: JSON.stringify(country)

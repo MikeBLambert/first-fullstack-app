@@ -5,7 +5,13 @@
             <h2>Number of Visits: {{country.times}}</h2>
             <h2>Primary Country Language: {{country.language}}</h2>
             <button @click="editing = !editing">{{ editing ? 'Cancel' : 'Edit'}}</button>
-            <button>Delete</button>
+            <button @click="handleDelete">Delete</button>
+            <br>
+            <router-link to="/countries">
+                <button id="return">
+                    Return To Your Travel Log
+                </button>
+            </router-link>
         </main>
     </article>
     <CountryForm 
@@ -43,8 +49,17 @@ export default {
                     this.country = update;
                     this.editing = false;
                 })
-        }
+        },
+        handleDelete() {
+            if(!confirm(`Are you sure you want to remove ${this.country.name} from your travel log?`)) {
+                return;
+            }
 
+            return api.deleteCountry(this.country.id)
+                .then(() => {
+                    this.$router.push('/countries');
+                });
+        },
     }
 }
 
@@ -54,6 +69,10 @@ export default {
 
 h2 {
     color: white;
+}
+
+#return {
+    margin-top: 50px;
 }
 </style>
 

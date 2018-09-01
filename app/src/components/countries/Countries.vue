@@ -47,7 +47,6 @@ export default {
     api.getCountries()
       .then(countries => { 
         this.countries = countries;
-        console.log(this.countries)
       });
   },
   components: {

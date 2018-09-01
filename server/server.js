@@ -124,11 +124,12 @@ app.put('/api/country-visit-info/:id', (req, res) => {
   client.query(`
     UPDATE country_visit_info
     SET
-      times = $1
-    WHERE id = $2
+      visited = $1,
+      times = $2
+    WHERE id = $3
     RETURNING *;
     `,
-    [body.times, req.params.id]
+    [body.visited, body.times, req.params.id]
   ).then(result => {
     res.send(result.rows[0]);
   });

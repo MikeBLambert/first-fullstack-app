@@ -2,7 +2,11 @@
     <section>
         <form @submit.prevent="handleSubmit">
             <h2>{{ country.name }}</h2>
-            <label>
+             <label>
+                Check if you've been there before: 
+                <input v-on:click="handleValueClick" type="checkbox" name="visited" v-model="edit.visited">
+            </label>
+            <label v-if="country.visited==true">
                 No. of Visits: <input type="number" name="times" v-model.number="edit.times">
             </label>
             <button type="submit">Submit</button>
@@ -14,7 +18,8 @@
 
 const initCountry = () => {
     return {
-        times: ''
+        times: false,
+        visited: 0
     };
 };
 
@@ -42,7 +47,10 @@ export default {
                 .then(() => {
                     this.edit = initCountry();
                 });
-        }
+        },
+        handleValueClick(){
+            this.country.visited = true;
+        },
     }
 }
 </script>

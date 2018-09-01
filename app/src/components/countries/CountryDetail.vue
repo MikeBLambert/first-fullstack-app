@@ -37,10 +37,11 @@ export default {
     },
     methods: {
         handleUpdate(toUpdate) {
+            console.log(toUpdate)
             return api.updateCountry(toUpdate)
                 .then(update => {
                     this.country = update;
-                    this.edit = false;
+                    this.editing = false;
                 })
         }
 

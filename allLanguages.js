@@ -742,4 +742,8 @@ let languages = {
       "native": "isiZulu"
     }
   }
-for 
+
+const langsInEng  = () => {
+  for language in languages {
+    
+  } 

@@ -3,7 +3,7 @@
 #### _This is a frontend application which allows user to log their travels and input countries that 
 #### _are on their bucketlist to go to. It was built with VueJS. 
 
-![screenshot](./assets/screenshot.png)
+![screenshot](./assets/Screenshot.png)
 
 #### By _**Mike B Lambert**_
 

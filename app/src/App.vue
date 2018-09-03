@@ -70,7 +70,6 @@ a {
 
 nav a {
   float: left;
-  /* margin-top: 200px; */
   margin: 30px 0px 0px 20px;
   padding: 10px;
   border: 1px solid black;

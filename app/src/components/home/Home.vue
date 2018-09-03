@@ -7,7 +7,6 @@
                     View Your Travel Log
                 </button>
             </router-link>
-            <!-- <router-view></router-view> -->
         </div>
     </section>
 </template>

@@ -11,12 +11,7 @@
 </template>
 
 <script>
-
-
 export default {
-  created() {
-    
-  },
   props: ['country']  
 
 };

@@ -1,7 +1,7 @@
 # Frontend App
 
 #### _This is a frontend application which allows user to log their travels and input countries that 
-#### _are on their bucketlist to go to. It was built with VueJS. 
+#### _are on their bucketlist to go to. It was built with VueJS._ 
 
 ![screenshot](./src/assets/Screenshot.png)
 

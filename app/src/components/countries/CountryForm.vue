@@ -57,9 +57,6 @@ export default {
   },
   methods: {
     handleSubmit() {
-      // this.edit.language = this.languages[this.edit.languageId - 1]
-      // console.log(this.languages)
-      // console.log(this.edit)
       if(!this.edit.visited) {
         this.edit.times = 0;
       }

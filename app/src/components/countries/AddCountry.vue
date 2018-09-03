@@ -63,7 +63,6 @@ export default {
       this.country.visited = true;
     },
     handleSubmit() {
-      console.log(this.languages.length)
       this.onAdd(this.country)
         .then(() => {
           this.country = initCountry();
@@ -97,7 +96,6 @@ label {
 }
 
 button {
-    /* margin-left: 85px; */
     border-radius: 10px;
     font-size: 20px;
     margin: 15px;

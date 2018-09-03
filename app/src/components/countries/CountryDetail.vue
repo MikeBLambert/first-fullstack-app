@@ -17,7 +17,8 @@
     <CountryForm 
         v-else
         :country="country"
-        :onEdit="handleUpdate"/>
+        :onEdit="handleUpdate"
+        :languages="languages"/>
 </template>
 
 <script>
@@ -26,6 +27,9 @@ import api from '../../services/api';
 import CountryForm from './CountryForm';
 
 export default {
+  props: {
+    languages: Array
+  },
   data() {
     return {
       country: null,
@@ -41,9 +45,21 @@ export default {
   components: {
     CountryForm,
   },
+  // computed: {
+  //   quadrant() {
+  //     if(!this.country || !this.language) {
+  //       return null;
+  //     }
+
+  //     const { languageId } = this.country;
+  //     return this.languages.find(l => l.id === languageId);
+  //   },
+  // },
   methods: {
     handleUpdate(toUpdate) {
-      console.log(toUpdate);
+      toUpdate.language = this.languages[toUpdate.languageId - 1].name
+      console.log(toUpdate.language)
+      console.log(toUpdate)
       return api.updateCountry(toUpdate)
         .then(update => {
           this.country = update;

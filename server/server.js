@@ -20,40 +20,25 @@ app.get('/api/country-visit-info', (req, res) => {
     c.name,
     c.visited,
     c.times, 
+    c.language_id as "languageId",
     l.name as language
   FROM country_visit_info as c
   JOIN languages as l
   ON c.language_id = l.id
-  ORDER BY c.name
-  ;
+  ORDER BY c.name;
   `)
     .then(result => {
       res.send(result.rows);
     })
     .catch(err => console.log(err));
 });
-// app.get('/api/country-visit-info', (req, res) => {
-//   client.query(`
-//     SELECT
-//       id,
-//       name,
-//       visited,
-//       times
-//     FROM country_visit_info
-//     JOIN 
-//     ;  
-//   `)
-//     .then(result => {
-//       res.send(result.rows);
-//     })
-//     .catch(err => console.log(err));
-// });
 
 app.get('/api/country-visit-info/:id', (req, res) => {
   client.query(`
     SELECT 
       c.id,
       c.name,
+      c.language_id as "languageId",
       l.name as "language",
       c.visited,
       c.times
@@ -70,38 +55,17 @@ app.get('/api/country-visit-info/:id', (req, res) => {
     .catch(err => console.log(err));
 });
 
-// app.get('/api/country-visit-info/:id', (req, res) => {
-//   client.query(`
-//     SELECT 
-//       id,
-//       name,
-//       language_id as "languageID",
-//       visited,
-//       times
-//     FROM country_visit_info
-//     WHERE id = $1;
-//   `,
-//   [req.params.id]
-//   )
-//     .then(result => {
-//       res.send(result.rows[0]);
-//     })
-//     .catch(err => console.log(err));
-// });
-
 app.post('/api/country-visit-info', (req, res) => {
   console.log('posting');
   const body = req.body;
-
   client.query(`
-    INSERT INTO country_visit_info (name, visited, times)
-    VALUES ($1, $3, $4)
+    INSERT INTO country_visit_info (name, language_id, visited, times)
+    VALUES ($1, $2, $3, $4)
     RETURNING *;
   `,
   [body.name, body.languageId, body.visited, body.times]
   )
     .then(result => {
-      // we always get rows back, in this case we just want first one.
       res.send(result.rows[0]);
     })
     .catch(err => console.log(err));
@@ -110,11 +74,10 @@ app.post('/api/country-visit-info', (req, res) => {
 app.get('/api/languages', (req, res) => {
   client.query(`
     SELECT *
-    FROM languages
-    ORDER BY name ASC;
+    FROM languages;
   `)
     .then(result => {
-      res.send(result.rows)
+      res.send(result.rows);
     });
 });
 
@@ -125,11 +88,12 @@ app.put('/api/country-visit-info/:id', (req, res) => {
     UPDATE country_visit_info
     SET
       visited = $1,
-      times = $2
-    WHERE id = $3
+      times = $2,
+      language_id = $3
+    WHERE id = $4
     RETURNING *;
     `,
-    [body.visited, body.times, req.params.id]
+  [body.visited, body.times, body.languageId, req.params.id]
   ).then(result => {
     res.send(result.rows[0]);
   });

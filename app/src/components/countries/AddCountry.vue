@@ -18,7 +18,7 @@
             </label>
             <label v-if="country.visited==true">
               What is the primary official language?
-                <select>
+                <select v-model.number="country.languageId">
                   <option disabled value="">Please select a language</option>
                   <option 
                     v-for="language in languages"
@@ -35,13 +35,13 @@
 </template>
 
 <script>
-import api from '../../services/api';
 
 const initCountry = () => {
   return {
     name: '',
     visited: false,
     times: 0,
+    languageId: 1
   };
 };
 
@@ -63,6 +63,7 @@ export default {
       this.country.visited = true;
     },
     handleSubmit() {
+      console.log(this.languages.length)
       this.onAdd(this.country)
         .then(() => {
           this.country = initCountry();

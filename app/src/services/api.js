@@ -22,6 +22,7 @@ export default {
       .then(response => response.json());
   },
   addCountry(country) {
+    console.log(country);
     return fetch(COUNTRY_VISIT_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

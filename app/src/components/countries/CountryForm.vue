@@ -9,6 +9,19 @@
             <label v-if="country.visited==true">
                 No. of Visits: <input type="number" name="times" v-model.number="edit.times">
             </label>
+            <label v-if="country.visited==true">
+              What is the primary official language?
+                <select v-model.number="edit.languageId">
+                  <option disabled value="">Please select a language</option>
+                  <option 
+                    v-for="language in languages"
+                    :key="language.id"
+                    :value="language.id"
+                  >
+                  {{language.name}}  
+                  </option>
+                </select>
+            </label>
             <button type="submit">Submit</button>
         </form>
     </section>
@@ -19,13 +32,14 @@
 const initCountry = () => {
   return {
     times: 0,
-    visited: false
+    visited: false,
   };
 };
 
 export default {
   props: {
     country: Object,
+    languages: Array,
     onEdit: {
       type: Function,
       required: true
@@ -43,6 +57,9 @@ export default {
   },
   methods: {
     handleSubmit() {
+      // this.edit.language = this.languages[this.edit.languageId - 1]
+      // console.log(this.languages)
+      // console.log(this.edit)
       if(!this.edit.visited) {
         this.edit.times = 0;
       }

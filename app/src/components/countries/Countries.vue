@@ -62,7 +62,7 @@ export default {
           this.countries.push(saved);
         });
     }
-  }
+  },
 };
 </script>
 

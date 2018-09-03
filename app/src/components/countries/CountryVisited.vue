@@ -17,10 +17,7 @@ export default {
   created() {
     
   },
-  props: ['country']
-   
-  // country: Object
-  
+  props: ['country']  
 
 };
 </script>

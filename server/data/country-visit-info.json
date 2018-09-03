@@ -1,38 +1,38 @@
 [
-    {
-        "name": "Canada",
-        "visited": true,
-        "times": 10,
-        "language": "English"
-    },
-    {
-        "name": "Mexico",
-        "visited": true,
-        "times": 7,
-        "language": "Spanish"
-    },
-    {
-        "name": "China",
-        "visited": true,
-        "times": 5,
-        "language": "Chinese"
-    },
-    {
-        "name": "Peru",
-        "visited": true,
-        "times": 15,
-        "language": "Spanish"        
-    },
-    {
-        "name": "Italy",
-        "visited": false,
-        "times": 0,
-        "language": "Italian"
-    },
-    {
-        "name": "Indonesia",
-        "visited": false,
-        "times": 0,
-        "language": "Indonesian"
-    }
+  {
+    "name": "Canada",
+    "visited": true,
+    "times": 10,
+    "language": "English"
+  },
+  {
+    "name": "Mexico",
+    "visited": true,
+    "times": 7,
+    "language": "Spanish"
+  },
+  {
+    "name": "China",
+    "visited": true,
+    "times": 5,
+    "language": "Chinese"
+  },
+  {
+    "name": "Peru",
+    "visited": true,
+    "times": 15,
+    "language": "Spanish"        
+  },
+  {
+    "name": "Italy",
+    "visited": false,
+    "times": 0,
+    "language": "Italian"
+  },
+  {
+    "name": "Indonesia",
+    "visited": false,
+    "times": 0,
+    "language": "Indonesian"
+  }
 ]

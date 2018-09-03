@@ -1,4 +1,8 @@
 {
+    "un": { 
+      "name": "unknown",
+      "native": "unknown"
+    },
     "aa": {
       "name": "Afar",
       "native": "Afar"

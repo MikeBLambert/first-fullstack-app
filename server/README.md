@@ -7,7 +7,8 @@
 ## Setup/Installation Requirements
 
 * _Clone this repository using "git clone."_
-* _Open index.html in any browser._
+* _Create and seed database with "npm run db-load-all" command in terminal._
+* _Run server with "npm run start" in terminal_
 
 ## Support and contact details
 

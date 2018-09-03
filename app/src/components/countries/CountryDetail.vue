@@ -33,7 +33,7 @@ export default {
   data() {
     return {
       country: null,
-      editing: false
+      editing: false,
     };
   },
   created() {
@@ -45,21 +45,9 @@ export default {
   components: {
     CountryForm,
   },
-  // computed: {
-  //   quadrant() {
-  //     if(!this.country || !this.language) {
-  //       return null;
-  //     }
-
-  //     const { languageId } = this.country;
-  //     return this.languages.find(l => l.id === languageId);
-  //   },
-  // },
   methods: {
     handleUpdate(toUpdate) {
-      toUpdate.language = this.languages[toUpdate.languageId - 1].name
-      console.log(toUpdate.language)
-      console.log(toUpdate)
+      toUpdate.language = this.languages[toUpdate.languageId - 1].name;
       return api.updateCountry(toUpdate)
         .then(update => {
           this.country = update;
